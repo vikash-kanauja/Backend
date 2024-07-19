@@ -5,9 +5,13 @@ const port = 3000;
 
 const server = http.createServer((req, res) => {
     res.statusCode = 200;
-    res.setHeader('Content-Type', 'text/html');
-    // res.end('Hello, World!\n');
-    res.end('<html><body><h1>Hello, World!</h1><p>This is a simple HTML response.</p></body></html>');
+    res.setHeader('Content-Type', 'application/json');
+    const response = {
+        message: 'Hello, World!',
+        timestamp: new Date(),
+    };
+    console.log(response);
+    res.end(JSON.stringify(response));
 });
 
 server.listen(port, hostname, () => {
