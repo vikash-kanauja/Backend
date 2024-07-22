@@ -18,6 +18,17 @@ app.get('/about', (req, res) => {
     res.send('<h1>About Us</h1><p>This is the about page.</p>');
 });
 
+// how to access file 
+app.get('/about', (req, res) => {
+    res.sendFile('./view/about.html',{root:__dirname})
+});
+
+
+app.get('/about', (req, res) => {
+    res.sendFile('complete path')
+});
+
+
 app.get('/json', (req, res) => {
     res.json({
         message: 'Hello, World!',
