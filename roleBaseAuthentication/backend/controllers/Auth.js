@@ -5,8 +5,8 @@ import jwt from "jsonwebtoken";
 const register = async (req, res) => {
   try {
     const { name, email, password } = req.body;
-
-    const user = await userModel.find({ email });
+    console.log(name);
+    const user = await userModel.findOne({ email });
     if (user) {
       return res.status(401).json({
         success: false,
